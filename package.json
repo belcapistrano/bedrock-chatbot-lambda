@@ -1,0 +1,28 @@
+{
+  "name": "bedrock-chatbot-lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda function for connecting to Amazon Bedrock",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "deploy": "zip -r function.zip . && aws lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME --zip-file fileb://function.zip",
+    "invoke-local": "node -e \"const handler = require('./index').handler; handler({}).then(console.log).catch(console.error);\""
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.x"
+  },
+  "devDependencies": {
+    "eslint": "^8.x",
+    "jest": "^29.x"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "bedrock",
+    "ai",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "ISC"
+}
